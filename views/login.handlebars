@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 class="text-center">Login</h1>
+            <form action="api/users/login" method="POST">
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                    <a href="/register" id="passwordHelp">Don't have an account? Register instead</a>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -10,9 +10,11 @@
         </div>
     </header>
 
-    <div class="postBody">
+    <div class="postBody" id="B-{{ post.name }}">
         <p>{{ post.description }}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat, ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris consequat neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi commodo. Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis imperdiet. Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
+
+        <button class="comment-button" id="{{ post.name }}">Leave a Comment &#x1F4AC;</button>
     </div>
 </div>
 {{/each}}

@@ -2,6 +2,13 @@
     border: 3px solid #3B71CA;
     /* padding: 1%; */
     margin: 1%;
+    position: relative;
+}
+
+.comment-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
 .postBody {
