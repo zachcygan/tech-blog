@@ -4,12 +4,15 @@
         <div class="header-left d-flex align-items-center">
             <h1>{{ post.name }}</h1>
         </div>
-        <div class="header-right d-flex align-items-center">
-            <p>Posted by X on {{format_date post.date_created}}</p>
+
+        <div class="header-right d-flex align-items-center postDate">
+            <p>Posted by {{ post.user.name }} on {{format_date post.date_created}}</p>
         </div>
     </header>
-    <article>
+
+    <div class="postBody">
         <p>{{ post.description }}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat, ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris consequat neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi commodo. Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis imperdiet. Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
-    </article>
-  </div>
+    </div>
+</div>
+{{/each}}
