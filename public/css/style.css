@@ -1,0 +1,14 @@
+.blog-post {
+    border: 3px solid #2189ce;
+    /* padding: 1%; */
+    margin: 1%;
+}
+
+.postBody {
+    padding: 1%;
+    font-size: 23px;
+}
+
+.postDate {
+    font-size: 40px;
+}
