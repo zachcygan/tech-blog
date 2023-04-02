@@ -12,6 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers })
+hbs.getPartials().then((partials) => {
+    for(let partial in partials) {
+        hbs.handlebars.registerPartial(partial, partials[partial])
+    }
+});
+
 
 const sess = {
     secret: 'Super secret secret',

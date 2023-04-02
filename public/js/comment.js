@@ -1,15 +1,36 @@
-const commentButton = $('#commentButton');
-const logButton = $('#log');
+const blogPost = $('.blog-post');
+const commentButton = $('.comment-button')
+const submitButton = $('#submitButton');
 
-commentButton.on('click', () => {
-    if (logButton.text() == 'Logout') {
-        console.log('LOGGED IN')
-        console.log(commentButton)
+submitButton.on('click', async (event) => {
+    event.preventDefault();
 
+    console.log(event)
+    const textArea = $('#textArea').val()
 
+    const response = await fetch('/api/users/comment', {
+        method: 'POST',
+        body: JSON.stringify({'content': textArea}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
+    if (response.ok) {
+        location.reload()
     } else {
-
+        alert(response.statusText);
     }
+})
+
+commentButton.on('click', (event) => {
+    event.stopPropagation();
+    
+    const commentArea = $('.comment-area')
+    commentArea.css('display', 'block')
+})
+
+blogPost.on('click', () => {
+    console.log('test')
 
 })
