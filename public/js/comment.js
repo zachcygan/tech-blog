@@ -30,7 +30,11 @@ commentButton.on('click', (event) => {
     commentArea.css('display', 'block')
 })
 
-blogPost.on('click', () => {
-    console.log('test')
+blogPost.mouseover(() => {
+    blogPost.css('cursor', 'pointer')
+})
 
+blogPost.on('click', (event) => {
+    const postNumber = $(event.target).closest('.blog-post').attr('data-post-id')
+    window.location.pathname = `/post/${postNumber}`
 })
