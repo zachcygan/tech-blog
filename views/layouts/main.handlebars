@@ -25,9 +25,9 @@
     
     <nav class="d-flex align-items-center">
       <a href="/" class="btn btn-primary me-2">Homepage</a>
-      <a href="/dashboard" class="btn btn-primary me-2">Dashboard</a>
+      <a href="/dashboard" class="btn btn-primary me-2" method="POST">Dashboard</a>
       {{#if logged_in}}
-      <a href="#" class="btn btn-primary" id="log">Logout</a>
+      <a href="/logout" class="btn btn-primary" id="log">Logout</a>
       {{else}}
       <a href="/login" class="btn btn-primary" id="log">Login</a>
       {{/if}}

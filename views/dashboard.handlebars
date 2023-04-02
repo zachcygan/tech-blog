@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2>{{name}}'s Dashboard</h2>
+        <button class="create-post-button" onclick="location.href='/create-post'">
+            Create Post &#x1F4E5;
+        </button>
+    </div>
+
+    {{#if posts}}
+    <div class="user-posts">
+        {{#each posts as |post| }}
+        <div class="blog-post">
+            <header class="d-flex justify-content-between align-items-center py-3 px-4 bg-primary">
+                <div class="header-left d-flex align-items-center">
+                    <h1>{{ post.title }}</h1>
+                </div>
+
+                <div class="header-right d-flex align-items-center postDate">
+                    <p>Posted on {{format_date post.date_created}}</p>
+                </div>
+            </header>
+
+            <div class="postBody" id="B-{{ post.title }}">
+                <p>{{ post.description }}</p>
+                <p>{{ post.content }}</p>
+
+                <button class="comment-button" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p>No posts found. Create your first post!</p>
+    {{/if}}
+</div>
