@@ -67,28 +67,15 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.post('/logout', async (req, res) => {
-    try {
-        const { userId } = req.session;
-        if (userId) {
-            await User.update({ 
-                session: null 
-            }, 
-            { 
-                where: { 
-                    id: userId 
-                }
-            });
-
-            req.session.destroy();
-        }
-
-        res.redirect('/login');
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
     }
-})
+  });
 
 
 module.exports = router;
