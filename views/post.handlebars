@@ -4,7 +4,7 @@
     <h5 class="card-title mb-0">{{ post.name }}</h5>
     <small class="text-white">Posted by {{ post.user.name }} on {{format_date post.date_created}}</small>
   </div>
-  <div class="card-body">
+  <div class="card-body bg-light rounded-bottom">
     <p class="card-text">{{ post.description }}</p>
     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat, ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris consequat neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi commodo. Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis imperdiet. Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
     <div class="text-end">
@@ -43,7 +43,7 @@
             <h5 class="card-title mb-0">{{ comment.user.name }} commented,</h5>
             <small class="text-white">{{format_date comment.date_created}}</small>
         </div>
-        <div class="card-body bg-muted rounded-bottom">
+        <div class="card-body bg-light rounded-bottom">
             <p class="card-text">{{ comment.content }}</p>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat,
                 ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris
