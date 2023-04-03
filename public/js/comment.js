@@ -1,5 +1,5 @@
 const blogPost = $('.blog-post');
-const commentButton = $('.comment-button')
+const commentButton = $('.commentButton')
 const submitButton = $('#submitButton');
 
 submitButton.on('click', async (event) => {
