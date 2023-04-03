@@ -18,8 +18,6 @@ post.on('click', (event) => {
     console.log($(event.target).closest('.blogpost').attr('data-post-id'))
     const postNumber = $(event.target).closest('.blogpost').attr('data-post-id')
     window.location.pathname = `/post/${postNumber}`
-
-
 })
 
 submitPost.on('click', async (event) => {

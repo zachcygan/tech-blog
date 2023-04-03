@@ -5,11 +5,18 @@
   </div>
   <div class="card-body bg-light rounded-bottom">
     <p class="card-text">{{ post.description }}</p>
-    <div class="text-end">
-      <button class="btn btn-primary commentButton mt-2" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
+    <div class="d-flex justify-content-end">
+      {{#if (equal post.user_id currentUser.id )}}
+      <button class="btn btn-success commentButton me-2" id="{{ post.id }}">UPDATE</button>
+      <button class="btn btn-danger commentButton me-2" id="{{ post.id }}">DELETE</button>
+      <button class="btn btn-primary commentButton" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
+      {{else}}
+      <button class="btn btn-primary commentButton" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
+      {{/if}}
     </div>
   </div>
 </div>
+
 
 <div class="card mt-3 comment-area" style="display:none" id="commentArea">
   <div class="card-header bg-primary text-white">
@@ -25,7 +32,6 @@
     </form>
   </div>
 </div>
-
 
 {{#each comments as |comment| }}
 

@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const routes = require('./controllers')
 const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars')
 const helpers = require('./util/helpers');
 
 const sequelize = require('./config/connection');
@@ -12,12 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers })
-hbs.getPartials().then((partials) => {
-    for(let partial in partials) {
-        hbs.handlebars.registerPartial(partial, partials[partial])
-    }
-});
-
+Handlebars.registerHelper('equal', (a, b) => {
+    return a === b;
+})
 
 const sess = {
     secret: 'Super secret secret',
