@@ -2,6 +2,8 @@ const newPostButton = $('#createNewPost');
 const submitPost = $('#postSubmit')
 const post = $('.blogpost')
 const form = $('#newPostForm');
+const deleteButton = $('#deletePostButton')
+const comment = $('.commentButton')
 
 newPostButton.on('click', async (event) => {
     event.preventDefault();
@@ -12,6 +14,25 @@ newPostButton.on('click', async (event) => {
 
 post.mouseover(() => {
     post.css('cursor', 'pointer')
+})
+
+deleteButton.on('click', async (event) => {
+    event.preventDefault();
+    const postId = comment.attr('id')
+    console.log(postId)
+
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+
+    if (response.ok) {
+        window.location.pathname = '/dashboard';
+    } else {
+        alert(response.statusText)
+    }
 })
 
 post.on('click', (event) => {
@@ -36,8 +57,6 @@ submitPost.on('click', async (event) => {
             'Content-Type': 'application/json',
         }
     })
-
-    console.log(response)
 
     if (response.ok) {
         location.reload();
