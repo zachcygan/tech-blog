@@ -7,20 +7,38 @@
     </div>
 
     {{#if posts}}
-<div class="user-posts">
-    {{#each posts as |post| }}
-    <div class="card mb-4 h1">
-        <div class="card-header bg-primary d-flex justify-content-between align-items-center">
-            <h5 class="card-title">{{ post.name }}</h5>
-            <p class="card-text">{{format_date post.date_created}}</p>
-        </div>
+    <div class="card" style="display:none" id="newPostForm">
         <div class="card-body">
-            <p class="card-text">{{ post.description }}</p>
-            <p class="card-text">{{ post.content }}</p>
+            <form>
+                <div class="form-group">
+                    <label for="titleInput">Title</label>
+                    <input type="text" id="postTitle" class="form-control" id="titleInput" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label for="textInput">Text</label>
+                    <textarea id="postContent" class="form-control" id="textInput" rows="3"
+                        placeholder="Enter text"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="postSubmit">Submit</button>
+            </form>
         </div>
     </div>
-    {{/each}}
-</div>
+
+
+    <div class="user-posts">
+        {{#each posts as |post| }}
+        <div class="card mb-4 h1 blogpost" data-post-id="{{ post.id }}">
+            <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{{ post.name }}</h5>
+                <p class="card-text">{{format_date post.date_created}}</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ post.description }}</p>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 
     {{else}}
     <p>No posts found. Create your first post!</p>
@@ -29,12 +47,13 @@
         <div class="card-body">
             <form>
                 <div class="form-group">
-                    <label for="titleInput" >Title</label>
+                    <label for="titleInput">Title</label>
                     <input type="text" id="postTitle" class="form-control" id="titleInput" placeholder="Enter title">
                 </div>
                 <div class="form-group">
-                    <label for="textInput" >Text</label>
-                    <textarea id="postContent" class="form-control" id="textInput" rows="3" placeholder="Enter text"></textarea>
+                    <label for="textInput">Text</label>
+                    <textarea id="postContent" class="form-control" id="textInput" rows="3"
+                        placeholder="Enter text"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" id="postSubmit">Submit</button>
             </form>

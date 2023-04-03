@@ -1,4 +1,3 @@
-
 <div class="card mt-3 h1">
   <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
     <h5 class="card-title mb-0">{{ post.name }}</h5>
@@ -6,19 +5,11 @@
   </div>
   <div class="card-body bg-light rounded-bottom">
     <p class="card-text">{{ post.description }}</p>
-    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat, ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris consequat neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi commodo. Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis imperdiet. Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
     <div class="text-end">
-      <button class="btn btn-primary commentButton" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
+      <button class="btn btn-primary commentButton mt-2" id="{{ post.id }}">Leave a Comment &#x1F4AC;</button>
     </div>
   </div>
 </div>
-
-{{!-- <form id="formId">
-    <div class="comment-area" id="commentArea" style="display:none">
-        <textarea rows="4" id="textArea" cols="50" name="content" placeholder="Write your comment here..."></textarea>
-        <button id="submitButton" class="submit-comment">Submit Comment</button>
-    </div>
-</form> --}}
 
 <div class="card mt-3 comment-area" style="display:none" id="commentArea">
   <div class="card-header bg-primary text-white">
@@ -27,56 +18,27 @@
   <div class="card-body">
     <form id="formId">
       <div class="form-group">
-        <textarea class="form-control" id="textArea" rows="4" name="content" placeholder="Write your comment here..."></textarea>
+        <textarea class="form-control" id="textArea" rows="4" name="content"
+          placeholder="Write your comment here..."></textarea>
       </div>
-      <button class="btn btn-primary" id="submitButton" type="submit">Submit Comment</button>
+      <button class="btn btn-primary mt-2" id="submitButton" type="submit">Submit Comment</button>
     </form>
   </div>
 </div>
 
 
-    {{#each comments as |comment| }}
+{{#each comments as |comment| }}
 
 <div class="d-flex just-content-center">
-    <div class="card mt-3 col-8">
-        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
-            <h5 class="card-title mb-0">{{ comment.user.name }} commented,</h5>
-            <small class="text-white">{{format_date comment.date_created}}</small>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <p class="card-text">{{ comment.content }}</p>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat,
-                ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris
-                consequat
-                neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi
-                commodo.
-                Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis
-                imperdiet.
-                Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
-        </div>
+  <div class="card mt-3 col-8">
+    <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+      <h5 class="card-title mb-0">{{ comment.user.name }} commented,</h5>
+      <small class="text-white">{{format_date comment.date_created}}</small>
     </div>
+    <div class="card-body bg-light rounded-bottom">
+      <p class="card-text">{{ comment.content }}</p>
+    </div>
+  </div>
 </div>
 
-
-
-
-{{!-- <div class="d-flex justify-content-center p-1">
-    <div class="p-4 border border-primary col-8">
-        <header class="d-flex justify-content-between align-items-center py-0 px-4 bg-primary">
-        <div class="header-left d-flex align-items-center">
-            <h1>{{ comment.user.name }} said on {{format_date comment.date_created}},</h1>
-        </div>
-
-        <div class="header-right d-flex align-items-center postDate">
-            <p></p>
-        </div>
-        </header>
-
-        <div class="postBody" id="B-{{ post.name }}">
-            <p>{{ comment.content }}</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae velit feugiat, ullamcorper lorem nec, vulputate magna. Suspendisse fringilla, ex id feugiat sagittis, urna mauris consequat neque, eget auctor odio mauris eu nisi. Quisque congue felis id augue gravida, quis eleifend nisi commodo. Sed ac odio nec augue convallis dictum. Sed ut mi odio. Integer eget ipsum vitae augue lobortis imperdiet. Aliquam erat volutpat. Nam efficitur odio in purus lobortis, ut commodo eros accumsan.</p>
-        </div>
-    </div>
-</div> --}}
-    {{/each}}
-
+{{/each}}
